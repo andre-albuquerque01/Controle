@@ -1,0 +1,23 @@
+Sql do `cliente_eletronico` junto com a tabela login e cliente
+SELECT * FROM `cliente_eletronico` INNER JOIN cliente ON cliente.id_cliente = cliente_eletronico.cliente_id_cliente INNER JOIN login ON login.id_login = 
+cliente.login_id_login WHERE cliente_eletronico.cliente_id_cliente = 1;
+
+Listar 'ver.php' reparo 
+SELECT * FROM `reparo` INNER JOIN statu ON reparo.status_id_status = statu.id_status INNER JOIN tecnico  ON reparo.tecnico_id_tecnico = tecnico.id_tecnico INNER JOIN eletronico ON reparo.eletronico_id_eletronico = eletronico.id_eletronico INNER JOIN endereco ON tecnico.endereco_id_endereco = endereco.id_endereco 
+INNER JOIN cliente_eletronico ON cliente_eletronico.eletronico_id_eletronico = eletronico.id_eletronico WHERE cliente_eletronico.cliente_id_cliente = 1
+
+Login do site
+sistemadegereciamentos@gmail.com	
+sistemasge2022
+
+Antes
+SELECT * FROM tecnico INNER JOIN endereco ON endereco_id_endereco = id_endereco LIMIT 5
+Depois
+Colocando session no tecnico
+SELECT * FROM tecnico INNER JOIN reparo ON reparo.tecnico_id_tecnico = tecnico.id_tecnico 
+INNER JOIN statu ON reparo.status_id_status = statu.id_status 
+INNER JOIN eletronico ON reparo.eletronico_id_eletronico = eletronico.id_eletronico 
+INNER JOIN endereco ON tecnico.endereco_id_endereco = endereco.id_endereco 
+INNER JOIN cliente_eletronico ON cliente_eletronico.eletronico_id_eletronico = eletronico.id_eletronico 
+INNER JOIN cliente ON cliente.id_cliente = cliente_eletronico.cliente_id_cliente 
+INNER JOIN login ON cliente.login_id_login = login.id_login WHERE cliente.login_id_login = 20
