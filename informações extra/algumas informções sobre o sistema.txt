@@ -8,7 +8,7 @@ INNER JOIN cliente_eletronico ON cliente_eletronico.eletronico_id_eletronico = e
 
 Login do site
 sistemadegereciamentos@gmail.com	
-sistemasge2022
+
 
 Antes
 SELECT * FROM tecnico INNER JOIN endereco ON endereco_id_endereco = id_endereco LIMIT 5
